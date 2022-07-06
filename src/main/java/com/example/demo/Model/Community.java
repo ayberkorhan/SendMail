@@ -10,17 +10,18 @@ import java.util.Set;
 @Table(name = "Community")
 public class Community implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long communityId;
-
-    public Long getCommunityId(long communityId) {
-        return this.communityId;
+    public Long getCommunityId() {
+        return communityId;
     }
 
     public void setCommunityId(Long communityId) {
         this.communityId = communityId;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long communityId;
+
 
 
 

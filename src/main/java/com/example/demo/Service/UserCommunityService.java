@@ -36,6 +36,10 @@ public class UserCommunityService {
         return userCommunityRepository.findAll();
     }
 
+    public List<UserCommunity> getById(long userId){
+        User user = userService.findUserById(userId);
+        return userCommunityRepository.findByUser(user);
+    }
 
 
 

@@ -30,7 +30,10 @@ public class UserCommunityController {
         return ResponseEntity.ok(userCommunityService.getAll());
     }
 
-
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<UserCommunity>> getCommunityFromUserId(@PathVariable long userId){
+        return ResponseEntity.ok(userCommunityService.getById(userId));
+    }
 
 
 
