@@ -19,9 +19,13 @@ public class UserCommunityService {
         this.communityService = communityService;
     }
 
-    public UserCommunity save(long userId,long communityId){
+    public UserCommunity save(long accountId,long communityId){
 
-        User user = userService.findUserById(userId);
+       // User user = userService.findUserById(accountId);
+
+        User user = userService.findUserByAccountId(accountId);
+
+
         Community community = communityService.findCommunityById(communityId);
 
         UserCommunity userCommunity = new UserCommunity();
@@ -36,8 +40,12 @@ public class UserCommunityService {
         return userCommunityRepository.findAll();
     }
 
-    public List<UserCommunity> getById(long userId){
-        User user = userService.findUserById(userId);
+    public List<UserCommunity> getById(long accountId){
+        User user = userService.findUserByAccountId(accountId);
+
+
+
+
         return userCommunityRepository.findByUser(user);
     }
 

@@ -25,7 +25,9 @@ public List<Community> getAll(){
     public Community findCommunityById(Long id)  {
         return communityRepository.findById(id).orElseThrow();
     }
-
+    public List<Community> findCreatorById(String id)  {
+        return (List<Community>) communityRepository.findByCreatorId(id);
+    }
 
 
 

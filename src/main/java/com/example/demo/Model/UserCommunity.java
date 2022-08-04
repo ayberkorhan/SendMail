@@ -60,6 +60,7 @@ public class UserCommunity implements Serializable {
     }
 
     @ManyToOne(fetch = LAZY)
+    @JsonIgnore
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private  User user;

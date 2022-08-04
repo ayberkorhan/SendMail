@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/community")
+@CrossOrigin
 public class CommunityController {
 private final CommunityService communityService;
 
@@ -21,15 +22,19 @@ public  CommunityController(CommunityService communityService){this.communitySer
     }
 
     @GetMapping("/getall")
+    @CrossOrigin
     public ResponseEntity<List<Community>> getAllCommunity(){
         return ResponseEntity.ok(communityService.getAll());
     }
 
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Community> getByidCommunity(@PathVariable Long id){ return ResponseEntity.ok(communityService.findCommunityById(id));
+    @GetMapping("/single")
+    public ResponseEntity<Community> getByidCommunity(@RequestParam Long id){ return ResponseEntity.ok(communityService.findCommunityById(id));
     }
 
-
+    @GetMapping("/creator/{id}")
+    public ResponseEntity<List<Community>> getByCreatorId(@PathVariable String id){
+    return ResponseEntity.ok(communityService.findCreatorById(id));
+    }
 
 }

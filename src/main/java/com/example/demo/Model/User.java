@@ -19,6 +19,18 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     Set<UserCommunity> userCommunity;
 
+    public Set<UserActivitiy> getUserActivitiys() {
+        return userActivitiys;
+    }
+
+    public void setUserActivitiys(Set<UserActivitiy> userActivitiys) {
+        this.userActivitiys = userActivitiys;
+    }
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    Set<UserActivitiy> userActivitiys;
+
 
     public Long getUserId() {
         return userId;
@@ -82,6 +94,14 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<UserCommunity> getUserCommunity() {
+        return userCommunity;
+    }
+
+    public void setUserCommunity(Set<UserCommunity> userCommunity) {
+        this.userCommunity = userCommunity;
     }
 
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
